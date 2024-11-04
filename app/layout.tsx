@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { ClerkProvider } from '@clerk/nextjs';
 
 import AppProviders from '@/components/providers/AppProviders';
 
@@ -18,10 +19,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <AppProviders>{children}</AppProviders>
-      </body>
-    </html>
+    <ClerkProvider
+      afterSignOutUrl={'/sign-in'}
+      appearance={{
+        elements: {
+          formButtonPrimary: 'bg-primary hover:bg-primary/90 text-sm !shadow-none',
+        },
+      }}
+    >
+      <html lang="en">
+        <body className={inter.className}>
+          <AppProviders>{children}</AppProviders>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

@@ -1,3 +1,5 @@
+import { SignedIn, UserButton } from '@clerk/nextjs';
+
 import { Separator } from '@/components/ui/separator';
 import { DesktopSidebar } from '@/components/Sidebar';
 import BreadcrumbHeader from '@/components/BreadcrumbHeader';
@@ -12,6 +14,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <BreadcrumbHeader />
           <div className="gap-1 flex items-center">
             <ModeToggle />
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
         </header>
         <Separator />
