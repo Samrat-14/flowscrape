@@ -1,9 +1,9 @@
 import { SignedIn, UserButton } from '@clerk/nextjs';
 
 import { Separator } from '@/components/ui/separator';
-import { DesktopSidebar } from '@/components/Sidebar';
-import BreadcrumbHeader from '@/components/BreadcrumbHeader';
-import { ModeToggle } from '@/components/ThemeModeToggle';
+import { DesktopSidebar } from '@/components/sidebar';
+import BreadcrumbHeader from '@/components/breadcrumb-header';
+import { ModeToggle } from '@/components/thememode-toggle';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (

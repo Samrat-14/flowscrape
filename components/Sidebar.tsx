@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CoinsIcon, HomeIcon, Layers2Icon, MenuIcon, ShieldCheckIcon } from 'lucide-react';
 
-import { Button, buttonVariants } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import Logo from '@/components/Logo';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import Logo from '@/components/logo';
 
 const routes = [
   {
