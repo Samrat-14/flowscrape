@@ -1,6 +1,7 @@
 import { GlobeIcon, LucideProps } from 'lucide-react';
 
 import { TaskParamType, TaskType } from '@/types/task';
+import { WorkflowTask } from '@/types/workflow';
 
 export const LaunchBrowserTask = {
   type: TaskType.LAUNCH_BROWSER,
@@ -22,4 +23,5 @@ export const LaunchBrowserTask = {
       type: TaskParamType.BROWSER_INSTANCE,
     },
   ],
-};
+  credits: 5,
+} satisfies WorkflowTask;
