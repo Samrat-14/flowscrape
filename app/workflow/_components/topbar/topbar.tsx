@@ -6,6 +6,7 @@ import { ChevronLeftIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TooltipWrapper from '@/components/tooltip-wrapper';
 import SaveBtn from '@/app/workflow/_components/topbar/save-btn';
+import ExecuteBtn from '@/app/workflow/_components/topbar/execute-btn';
 
 interface Props {
   title: string;
@@ -30,6 +31,7 @@ export default function Topbar({ title, subtitle, workflowId }: Props) {
         </div>
       </div>
       <div className="flex gap-1 flex-1 justify-end">
+        <ExecuteBtn workflowId={workflowId} />
         <SaveBtn workflowId={workflowId} />
       </div>
     </header>
