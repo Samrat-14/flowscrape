@@ -1,5 +1,5 @@
-import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 
 export default function NotFoundPage() {
   return (

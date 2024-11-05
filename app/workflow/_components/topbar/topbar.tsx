@@ -5,7 +5,7 @@ import { ChevronLeftIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import TooltipWrapper from '@/components/tooltip-wrapper';
-import SaveBtn from './save-btn';
+import SaveBtn from '@/app/workflow/_components/topbar/save-btn';
 
 interface Props {
   title: string;

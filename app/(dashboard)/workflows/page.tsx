@@ -3,8 +3,8 @@ import { AlertCircle, InboxIcon } from 'lucide-react';
 
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import CreateWorkflowDialog from './_components/create-workflow-dialog';
-import WorkflowCard from './_components/workflow-card';
+import CreateWorkflowDialog from '@/app/(dashboard)/workflows/_components/create-workflow-dialog';
+import WorkflowCard from '@/app/(dashboard)/workflows/_components/workflow-card';
 
 import { getWorkflowsForUser } from '@/actions/workflows/get-workflows-for-user';
 

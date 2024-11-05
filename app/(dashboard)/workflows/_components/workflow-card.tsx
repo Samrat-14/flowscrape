@@ -7,7 +7,7 @@ import { FileTextIcon, MoreVerticalIcon, PlayIcon, ShuffleIcon, TrashIcon } from
 
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import DeleteWorkflowDialog from './delete-workflow-dialog';
+import DeleteWorkflowDialog from '@/app/(dashboard)/workflows/_components/delete-workflow-dialog';
 import {
   DropdownMenu,
   DropdownMenuContent,

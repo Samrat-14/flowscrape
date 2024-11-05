@@ -3,12 +3,21 @@
 import { useCallback } from 'react';
 import { useReactFlow } from '@xyflow/react';
 
-import StringParam from './param/string-param';
+import StringParam from '@/app/workflow/_components/nodes/param/string-param';
+import BrowserInstanceParam from '@/app/workflow/_components/nodes/param/browser-instance-param';
 
 import { TaskParam, TaskParamType } from '@/types/task';
 import { AppNode } from '@/types/appnode';
 
-export default function NodeParamField({ param, nodeId }: { param: TaskParam; nodeId: string }) {
+export default function NodeParamField({
+  param,
+  nodeId,
+  disabled,
+}: {
+  param: TaskParam;
+  nodeId: string;
+  disabled: boolean;
+}) {
   const { updateNodeData, getNode } = useReactFlow();
   const node = getNode(nodeId) as AppNode;
   const value = node?.data.inputs?.[param.name];
@@ -27,7 +36,11 @@ export default function NodeParamField({ param, nodeId }: { param: TaskParam; no
 
   switch (param.type) {
     case TaskParamType.STRING:
-      return <StringParam param={param} value={value} updateNodeParamValue={updateNodeParamValue} />;
+      return (
+        <StringParam param={param} value={value} updateNodeParamValue={updateNodeParamValue} disabled={disabled} />
+      );
+    case TaskParamType.BROWSER_INSTANCE:
+      return <BrowserInstanceParam param={param} value={''} updateNodeParamValue={updateNodeParamValue} />;
     default:
       return (
         <div className="w-full">
