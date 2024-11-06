@@ -21,6 +21,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import PhaseStatusBadge from '@/app/workflow/runs/[workflowId]/[executionId]/_components/phase-status-badge';
+import ReactCountUpWrapper from '@/components/react-count-up-wrapper';
 
 import { getWorkflowExecutionWithPhases } from '@/actions/workflows/get-workflow-execution-with-phases';
 import { getWorkflowPhaseDetails } from '@/actions/workflows/get-workflow-phase-details';
@@ -92,7 +93,11 @@ export default function ExecutionViewer({ initialData }: { initialData: Executio
             label="Duration"
             value={duration ? duration : <Loader2Icon size={20} className="animate-spin" />}
           />
-          <ExecutionLabel icon={CoinsIcon} label="Credits consumed" value={creditsConsumed} />
+          <ExecutionLabel
+            icon={CoinsIcon}
+            label="Credits consumed"
+            value={<ReactCountUpWrapper value={creditsConsumed} />}
+          />
         </div>
         <Separator />
         <div className="flex justify-center items-center py-2 px-4">
@@ -144,7 +149,7 @@ export default function ExecutionViewer({ initialData }: { initialData: Executio
                   <CoinsIcon size={18} className="stroke-muted-foreground" />
                   <span>Credits</span>
                 </div>
-                <span>TODO</span>
+                <span>{phaseDetails.data.creditsConsumed}</span>
               </Badge>
               <Badge variant="outline" className="space-x-4">
                 <div className="flex gap-1 items-center">
