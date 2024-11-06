@@ -51,6 +51,7 @@
     "lucide-react": "^0.454.0",
     "next": "14.2.5",
     "next-themes": "^0.3.0",
+    "nextjs-toploader": "^3.7.15",
     "puppeteer": "^23.7.0",
     "react": "^18",
     "react-countup": "^6.5.3",
