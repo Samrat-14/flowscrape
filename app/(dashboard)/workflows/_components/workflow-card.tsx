@@ -17,6 +17,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import TooltipWrapper from '@/components/tooltip-wrapper';
+import RunBtn from '@/app/(dashboard)/workflows/_components/run-btn';
 
 import { cn } from '@/lib/utils';
 import { WorkflowStatus } from '@/types/workflow';
@@ -55,6 +56,7 @@ export default function WorkflowCard({ workflow }: { workflow: Workflow }) {
           </div>
         </div>
         <div className="flex items-center space-x-2">
+          {!isDraft && <RunBtn workflowId={workflow.id} />}
           <Link
             href={`/workflow/editor/${workflow.id}`}
             className={cn(

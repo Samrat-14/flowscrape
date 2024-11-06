@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import TooltipWrapper from '@/components/tooltip-wrapper';
 import SaveBtn from '@/app/workflow/_components/topbar/save-btn';
 import ExecuteBtn from '@/app/workflow/_components/topbar/execute-btn';
+import PublishBtn from '@/app/workflow/_components/topbar/publish-btn';
+import UnpublishBtn from '@/app/workflow/_components/topbar/unpublish-btn';
 import NavigationTabs from '@/app/workflow/_components/topbar/navigation-tabs';
 
 interface Props {
@@ -14,9 +16,10 @@ interface Props {
   subtitle?: string;
   workflowId: string;
   hideButtons?: boolean;
+  isPublished?: boolean;
 }
 
-export default function Topbar({ title, subtitle, workflowId, hideButtons = false }: Props) {
+export default function Topbar({ title, subtitle, workflowId, hideButtons = false, isPublished = false }: Props) {
   const router = useRouter();
 
   return (
@@ -37,7 +40,13 @@ export default function Topbar({ title, subtitle, workflowId, hideButtons = fals
         {hideButtons === false && (
           <>
             <ExecuteBtn workflowId={workflowId} />
-            <SaveBtn workflowId={workflowId} />
+            {isPublished && <UnpublishBtn workflowId={workflowId} />}
+            {!isPublished && (
+              <>
+                <SaveBtn workflowId={workflowId} />
+                <PublishBtn workflowId={workflowId} />
+              </>
+            )}
           </>
         )}
       </div>

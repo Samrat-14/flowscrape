@@ -47,7 +47,7 @@ export async function executeWorkflow(executionId: string) {
   await finalizeWorkflowExecution(executionId, execution.workflowId, executionFailed, creditsConsumed);
   await cleanupEnvironment(environment);
 
-  revalidatePath('/workflows/runs');
+  revalidatePath('/workflow/runs');
 }
 
 async function initializeWorkflowExecution(executionId: string, workflowId: string) {
