@@ -1,6 +1,7 @@
 import { LaunchBrowserTask } from '@/lib/workflow/task/launch-browser';
 import { PageToHtmlTask } from '@/lib/workflow/task/page-to-html';
 import { ExtractTextFromElementTask } from '@/lib/workflow/task/extract-text-from-element';
+
 import { TaskType } from '@/types/task';
 import { WorkflowTask } from '@/types/workflow';
 

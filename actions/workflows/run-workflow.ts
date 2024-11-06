@@ -1,10 +1,12 @@
 'use server';
 
+import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
 
 import prisma from '@/lib/prisma';
 import { flowToExecutionPlan } from '@/lib/workflow/execution-plan';
 import { TaskRegistry } from '@/lib/workflow/task/registry';
+import { executeWorkflow } from '@/lib/workflow/execute-workflow';
 import {
   ExecutionPhaseStatus,
   WorkflowExecutionPlan,
@@ -60,6 +62,7 @@ export async function runWorkflow(form: { workflowId: string; flowDefinition?: s
       status: WorkflowExecutionStatus.PENDING,
       startedAt: new Date(),
       trigger: WorkflowExecutionTrigger.MANUAL,
+      definition: flowDefinition,
       phases: {
         create: executionPlan.flatMap((phase) => {
           return phase.nodes.flatMap((node) => {
@@ -83,4 +86,8 @@ export async function runWorkflow(form: { workflowId: string; flowDefinition?: s
   if (!execution) {
     throw new Error('Workflow execution not created');
   }
+
+  executeWorkflow(execution.id); // run this on background
+
+  redirect(`/workflow/runs/${workflowId}/${execution.id}`);
 }

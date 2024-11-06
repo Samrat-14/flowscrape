@@ -107,7 +107,7 @@ export default function FlowEditor({ workflow }: { workflow: Workflow }) {
       const source = nodes.find((node) => node.id === connection.source);
       const target = nodes.find((node) => node.id === connection.target);
       if (!source || !target) {
-        console.log('Invalid connection: source or target node not found');
+        console.error('Invalid connection: source or target node not found');
         return false;
       }
 
@@ -118,7 +118,7 @@ export default function FlowEditor({ workflow }: { workflow: Workflow }) {
       const input = targetTask.inputs.find((i) => i.name === connection.targetHandle);
 
       if (input?.type !== output?.type) {
-        console.log('Invalid connection: Type mismatch');
+        console.error('Invalid connection: Type mismatch');
         return false;
       }
 
