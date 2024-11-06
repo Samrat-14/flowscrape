@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import TooltipWrapper from '@/components/tooltip-wrapper';
 import SaveBtn from '@/app/workflow/_components/topbar/save-btn';
 import ExecuteBtn from '@/app/workflow/_components/topbar/execute-btn';
+import NavigationTabs from '@/app/workflow/_components/topbar/navigation-tabs';
 
 interface Props {
   title: string;
@@ -31,6 +32,7 @@ export default function Topbar({ title, subtitle, workflowId, hideButtons = fals
           {subtitle && <p className="text-xs text-muted-foreground truncate text-ellipsis">{subtitle}</p>}
         </div>
       </div>
+      <NavigationTabs workflowId={workflowId} />
       <div className="flex gap-1 flex-1 justify-end">
         {hideButtons === false && (
           <>

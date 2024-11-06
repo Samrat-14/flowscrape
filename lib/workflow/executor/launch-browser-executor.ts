@@ -1,6 +1,5 @@
 import puppeteer from 'puppeteer';
 
-import { waitFor } from '@/lib/helper/waitFor';
 import { LaunchBrowserTask } from '@/lib/workflow/task/launch-browser';
 import { ExecutionEnvironment } from '@/types/executor';
 
