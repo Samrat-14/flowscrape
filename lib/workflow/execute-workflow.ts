@@ -14,7 +14,7 @@ import { Environment, ExecutionEnvironment } from '@/types/executor';
 import { TaskParamType } from '@/types/task';
 import { LogCollector } from '@/types/log';
 
-export async function executeWorkflow(executionId: string) {
+export async function executeWorkflow(executionId: string, nextRunAt?: Date) {
   const execution = await prisma.workflowExecution.findUnique({
     where: { id: executionId },
     include: { workflow: true, phases: true },
@@ -28,7 +28,7 @@ export async function executeWorkflow(executionId: string) {
 
   const environment: Environment = { phases: {} };
 
-  await initializeWorkflowExecution(execution.id, execution.workflowId);
+  await initializeWorkflowExecution(execution.id, execution.workflowId, nextRunAt);
   await initializePhaseStatuses(execution);
 
   let creditsConsumed = 0;
@@ -50,7 +50,7 @@ export async function executeWorkflow(executionId: string) {
   revalidatePath('/workflow/runs');
 }
 
-async function initializeWorkflowExecution(executionId: string, workflowId: string) {
+async function initializeWorkflowExecution(executionId: string, workflowId: string, nextRunAt?: Date) {
   await prisma.workflowExecution.update({
     where: { id: executionId },
     data: {
@@ -65,6 +65,7 @@ async function initializeWorkflowExecution(executionId: string, workflowId: stri
       lastRunAt: new Date(),
       lastRunStatus: WorkflowExecutionStatus.RUNNING,
       lastRunId: executionId,
+      ...(nextRunAt && { nextRunAt }),
     },
   });
 }

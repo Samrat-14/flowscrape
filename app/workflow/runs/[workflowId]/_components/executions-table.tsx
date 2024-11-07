@@ -7,7 +7,7 @@ import { CoinsIcon } from 'lucide-react';
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import ExecutionStatusIndicator from '@/app/workflow/runs/[workflowId]/_components/execution-status-indicator';
+import { ExecutionStatusIndicator } from '@/app/workflow/runs/[workflowId]/_components/execution-status-indicator';
 
 import { getWorkflowExecutions } from '@/actions/workflows/get-workflow-executions';
 import { datesToDurationString } from '@/lib/helper/dates';
