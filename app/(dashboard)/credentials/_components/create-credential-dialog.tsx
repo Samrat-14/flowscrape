@@ -28,6 +28,7 @@ export default function CreateCredentialDialog({ triggerText }: { triggerText?: 
     mutationFn: createCredential,
     onSuccess: () => {
       toast.success('Credential created successfully', { id: 'create-credential' });
+      form.reset();
       setOpen((prev) => !prev);
     },
     onError: () => {
@@ -44,13 +45,7 @@ export default function CreateCredentialDialog({ triggerText }: { triggerText?: 
   );
 
   return (
-    <Dialog
-      open={open}
-      onOpenChange={(open) => {
-        form.reset();
-        setOpen(open);
-      }}
-    >
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>{triggerText ?? 'Create'}</Button>
       </DialogTrigger>

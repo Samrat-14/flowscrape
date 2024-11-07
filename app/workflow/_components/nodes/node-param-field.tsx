@@ -9,6 +9,7 @@ import { AppNode } from '@/types/appnode';
 import StringParam from '@/app/workflow/_components/nodes/param/string-param';
 import BrowserInstanceParam from '@/app/workflow/_components/nodes/param/browser-instance-param';
 import SelectParam from '@/app/workflow/_components/nodes/param/select-param';
+import CredentialsParam from '@/app/workflow/_components/nodes/param/credentials-param';
 
 export default function NodeParamField({
   param,
@@ -45,6 +46,10 @@ export default function NodeParamField({
     case TaskParamType.SELECT:
       return (
         <SelectParam param={param} value={value} updateNodeParamValue={updateNodeParamValue} disabled={disabled} />
+      );
+    case TaskParamType.CREDENTIAL:
+      return (
+        <CredentialsParam param={param} value={value} updateNodeParamValue={updateNodeParamValue} disabled={disabled} />
       );
     default:
       return (
