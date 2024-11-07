@@ -16,8 +16,6 @@ export default function BreadcrumbHeader() {
   const pathname = usePathname();
   const paths = pathname === '/' ? [''] : pathname.split('/');
 
-  const isLastIndex = (index: number) => index === paths.length - 1;
-
   return (
     <div className="flex items-center flex-start">
       <MobileSidebar />
@@ -30,7 +28,7 @@ export default function BreadcrumbHeader() {
                   {path === '' ? 'home' : path}
                 </BreadcrumbLink>
               </BreadcrumbItem>
-              {!isLastIndex(index) && <BreadcrumbSeparator />}
+              {index !== paths.length - 1 && <BreadcrumbSeparator />}
             </React.Fragment>
           ))}
         </BreadcrumbList>

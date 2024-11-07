@@ -90,3 +90,14 @@ model UserBalanace {
   userId  String @id
   credits Int    @default(0)
 }
+
+model Credential {
+  id     String @id @default(cuid())
+  userId String
+  name   String
+  value  String
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, name])
+}
