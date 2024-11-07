@@ -9,7 +9,7 @@ import { TaskType } from '@/types/task';
 export default function TaskMenu() {
   return (
     <aside className="w-[340px] min-w-[340px] max-w-[340px] border-r-2 border-separate h-full p-2 px-4 overflow-auto">
-      <Accordion type="multiple" className="w-full" defaultValue={['extraction', 'interactions', 'timing']}>
+      <Accordion type="multiple" className="w-full" defaultValue={['extraction', 'interactions', 'timing', 'results']}>
         <AccordionItem value="interactions">
           <AccordionTrigger className="font-bold">User interactions</AccordionTrigger>
           <AccordionContent className="flex flex-col gap-1">
@@ -30,6 +30,13 @@ export default function TaskMenu() {
           <AccordionTrigger className="font-bold">Timing controls</AccordionTrigger>
           <AccordionContent className="flex flex-col gap-1">
             <TaskMenuBtn taskType={TaskType.WAIT_FOR_ELEMENT} />
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="results">
+          <AccordionTrigger className="font-bold">Result delivery</AccordionTrigger>
+          <AccordionContent className="flex flex-col gap-1">
+            <TaskMenuBtn taskType={TaskType.DELIVER_VIA_WEBHOOK} />
           </AccordionContent>
         </AccordionItem>
       </Accordion>
