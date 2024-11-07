@@ -3,11 +3,12 @@
 import { useCallback } from 'react';
 import { useReactFlow } from '@xyflow/react';
 
-import StringParam from '@/app/workflow/_components/nodes/param/string-param';
-import BrowserInstanceParam from '@/app/workflow/_components/nodes/param/browser-instance-param';
-
 import { TaskParam, TaskParamType } from '@/types/task';
 import { AppNode } from '@/types/appnode';
+
+import StringParam from '@/app/workflow/_components/nodes/param/string-param';
+import BrowserInstanceParam from '@/app/workflow/_components/nodes/param/browser-instance-param';
+import SelectParam from '@/app/workflow/_components/nodes/param/select-param';
 
 export default function NodeParamField({
   param,
@@ -41,6 +42,10 @@ export default function NodeParamField({
       );
     case TaskParamType.BROWSER_INSTANCE:
       return <BrowserInstanceParam param={param} value={''} updateNodeParamValue={updateNodeParamValue} />;
+    case TaskParamType.SELECT:
+      return (
+        <SelectParam param={param} value={value} updateNodeParamValue={updateNodeParamValue} disabled={disabled} />
+      );
     default:
       return (
         <div className="w-full">
