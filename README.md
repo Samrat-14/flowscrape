@@ -57,14 +57,14 @@ Our **AI-powered web scraping** feature is currently in beta, offering smart scr
 
 ---
 
-## License
+## 🪪 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## View Demo
+## 🌎 View Demo
 
 Live Demo: [https://samrat-flowscrape.vercel.app/](https://samrat-flowscrape.vercel.app)
 
-## Contact
+## 📞 Contact
 
 Your Name - [Samrat Sadhu](https://samrat-sadhu-portfolio.vercel.app/) - ss2414@ece.jgec.ac.in
