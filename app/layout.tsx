@@ -11,7 +11,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'FlowScrape',
-  description: 'SaaS application to automate workflow and webscraping.',
+  description:
+    'A powerful SaaS platform that combines workflow management with automated web scraping to streamline data collection and processing.',
 };
 
 export default function RootLayout({
