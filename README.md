@@ -6,8 +6,6 @@ FlowScrape is a powerful SaaS platform for workflow automation with integrated w
 
 ![FlowScrape2_screenshot](/public/preview/preview_2.png)
 
----
-
 ## 📋 Key Features
 
 - **Workflow Automation**: Easily build and execute multi-step workflows. Run tasks in distinct phases with assigned credits, providing granular control over your scraping executions.
@@ -24,16 +22,12 @@ FlowScrape is a powerful SaaS platform for workflow automation with integrated w
 
 - **AI-Powered Web Scraping (Beta)**: Explore our beta AI-driven feature that intelligently navigates and scrapes data from complex websites.
 
----
-
 ## 🚀 Getting Started
 
 1. **Sign Up**: Create an account on FlowScrape and choose a subscription plan that suits your needs. FREE 100 credits are provided for first time users.
 2. **Add Credentials**: Securely store your API keys, tokens, and other credentials for seamless workflow execution.
 3. **Build Your Workflow**: Utilize FlowScrape’s tools to design your workflow phases, and scrape the web with controlled execution.
 4. **Monitor and Analyze**: Track the performance of your workflows through real-time analytics, and manage your billing and usage directly on the dashboard.
-
----
 
 ## 🛠️ Tech Stack
 
@@ -43,19 +37,13 @@ FlowScrape is a powerful SaaS platform for workflow automation with integrated w
 - **Security**: Encrypted credential storage to protect sensitive data
 - **Analytics**: Real-time data visualization and reporting
 
----
-
 ## 📊 Usage & Billing
 
 FlowScrape's credit-based system allows you to manage workflow executions efficiently. The Stripe integration provides transparent billing, letting you track usage and manage subscriptions.
 
----
-
 ## 📅 Beta Features
 
 Our **AI-powered web scraping** feature is currently in beta, offering smart scraping capabilities to navigate complex pages. Join the beta to be among the first to test this groundbreaking tool!
-
----
 
 ## 🪪 License
 
