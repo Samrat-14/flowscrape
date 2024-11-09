@@ -7,7 +7,7 @@ import { PageToHtmlExecutor } from '@/lib/workflow/executor/page-to-html-executo
 import { ExtractTextFromElementExecutor } from '@/lib/workflow/executor/extract-text-from-element-executor';
 import { FillInputExecutor } from '@/lib/workflow/executor/fill-input-executor';
 import { ClickElementExecutor } from '@/lib/workflow/executor/click-element-executor';
-import { WaitForElementExecutor } from '@/lib/workflow/executor/wsit-for-element-executor';
+import { WaitForElementExecutor } from '@/lib/workflow/executor/wait-for-element-executor';
 import { DeliverViaWebhookExecutor } from '@/lib/workflow/executor/deliver-via-webhook-executor';
 import { ExtractDataWithAiExecutor } from '@/lib/workflow/executor/extract-data-with-ai-executor';
 import { ReadPropertyFromJsonExecutor } from '@/lib/workflow/executor/read-property-from-json-executor';
