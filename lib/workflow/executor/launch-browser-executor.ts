@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import puppeteer, { Browser } from 'puppeteer';
 
 import { LaunchBrowserTask } from '@/lib/workflow/task/launch-browser';
 import { ExecutionEnvironment } from '@/types/executor';
@@ -8,11 +8,31 @@ export async function LaunchBrowserExecutor(
 ): Promise<boolean> {
   try {
     const websiteUrl = environment.getInput('Website Url');
-    const browser = await puppeteer.launch({
-      headless: true, // for testing
-    });
+    // const browser = await puppeteer.launch({
+    //   headless: true, // for testing
+    // });
+    // console.log('Launched in local browser');
+    // const browser = await puppeteer.connect({
+    //   browserWSEndpoint: process.env.BRIGHT_DATA_BROWSER_WS,
+    // });
+    // console.log('Connected to Brightdata browser');
+
+    let browser;
+    if (process.env.NODE_ENV !== 'production') {
+      // launch locally in dev
+      browser = await puppeteer.launch({
+        headless: true,
+      });
+      environment.log.info('Browser launched successfully');
+    } else {
+      // connect to brightdata in prod
+      browser = await puppeteer.connect({
+        browserWSEndpoint: process.env.BRIGHT_DATA_BROWSER_WS,
+      });
+      environment.log.info('Browser connected successfully');
+    }
+
     environment.setBrowser(browser);
-    environment.log.info('Browser started successfully');
 
     const page = await browser.newPage();
     await page.goto(websiteUrl);
