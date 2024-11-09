@@ -8,14 +8,6 @@ export async function LaunchBrowserExecutor(
 ): Promise<boolean> {
   try {
     const websiteUrl = environment.getInput('Website Url');
-    // const browser = await puppeteer.launch({
-    //   headless: true, // for testing
-    // });
-    // console.log('Launched in local browser');
-    // const browser = await puppeteer.connect({
-    //   browserWSEndpoint: process.env.BRIGHT_DATA_BROWSER_WS,
-    // });
-    // console.log('Connected to Brightdata browser');
 
     let browser;
     if (process.env.NODE_ENV !== 'production') {
