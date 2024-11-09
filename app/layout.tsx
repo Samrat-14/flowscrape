@@ -10,9 +10,11 @@ import '@/app/globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
   title: 'FlowScrape',
   description:
     'A powerful SaaS platform that combines workflow management with automated web scraping to streamline data collection and processing.',
+  keywords: ['FlowScrape', 'workflow', 'webscrape'],
 };
 
 export default function RootLayout({
