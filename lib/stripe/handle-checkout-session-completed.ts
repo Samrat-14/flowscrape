@@ -21,6 +21,7 @@ export async function handleCheckoutSessionCompleted(event: Stripe.Checkout.Sess
   if (!purchasedPack) {
     throw new Error('Purchased pack not found');
   }
+  console.log('@@PURCHASE_PACK', purchasedPack);
 
   await prisma.userBalanace.upsert({
     where: { userId },
@@ -34,6 +35,7 @@ export async function handleCheckoutSessionCompleted(event: Stripe.Checkout.Sess
       },
     },
   });
+  console.log('@@UPDATED');
 
   await prisma.userPurchase.create({
     data: {
